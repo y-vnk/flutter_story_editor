@@ -145,11 +145,11 @@ class _MainControlsViewState extends State<MainControlsView> {
       alignment: Alignment.center,
       children: [
         for (File file in widget.selectedFiles!)
-          // if (!(isVideo(file)))
-          Align(
-            alignment: Alignment.topCenter,
-            child: _buildTop(),
-          ),
+          if (!(isVideo(file)))
+            Align(
+              alignment: Alignment.topCenter,
+              child: _buildTop(),
+            ),
         Align(
           alignment: Alignment.bottomCenter,
           child: _buildBottom(),

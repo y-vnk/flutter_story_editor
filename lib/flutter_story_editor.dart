@@ -341,7 +341,7 @@ class _FlutterStoryEditorState extends State<FlutterStoryEditor> {
                                     StoryEditingModes.stickers;
                               },
                               textList: textListValue,
-                              isFocused: isKeyboardFocused,
+                              isFocused: false,
                               lines: widget.controller
                                   .uiEditableFileLines[currentPageIndex],
                               onTextClickListener: () {
