@@ -375,12 +375,9 @@ class _FlutterStoryEditorState extends State<FlutterStoryEditor> {
                                     widget.selectedFiles![currentPageIndex];
                                 widget.controller.setFilterSelected =
                                     selectedFilters[currentPageIndex];
-                                for (File file in widget
-                                    .selectedFiles!) // paint is applied only for images
-                                  if (!(isVideo(file)))
-                                    widget.controller
-                                            .setStoryEditingModeSelected =
-                                        StoryEditingModes.paint;
+
+                                widget.controller.setStoryEditingModeSelected =
+                                    StoryEditingModes.paint;
                               },
                               currentPageIndex: currentPageIndex,
                               pageController: _pageController,
