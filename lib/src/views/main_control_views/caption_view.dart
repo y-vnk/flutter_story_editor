@@ -19,38 +19,36 @@ class CaptionView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Building the widget structure for the caption view.
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          GestureDetector(
-            onTap:
-                onSaveClickListener, // Gesture detector to handle tap events on the save button.
-            child: Container(
-              width: 45,
-              height: 45,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                      25), // Rounded corners for the button.
-                  color: tealColor), // Background color set to teal.
-              child: Center(
-                child: isSaving
-                    ? const SizedBox(
-                        width: 20,
-                        height: 20,
-                        child: CircularProgressIndicator(
-                          color: Colors.white,
-                        ),
-                      ) // Circular progress indicator when saving.
-                    : const Icon(
-                        Icons.send_outlined,
+    return Align(
+      alignment: Alignment.bottomRight,
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        child: GestureDetector(
+          onTap:
+              onSaveClickListener, // Gesture detector to handle tap events on the save button.
+          child: Container(
+            width: 45,
+            height: 45,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(
+                    25), // Rounded corners for the button.
+                color: tealColor), // Background color set to teal.
+            child: Center(
+              child: isSaving
+                  ? const SizedBox(
+                      width: 20,
+                      height: 20,
+                      child: CircularProgressIndicator(
                         color: Colors.white,
-                      ), // Icon indicating send action.
-              ),
+                      ),
+                    ) // Circular progress indicator when saving.
+                  : const Icon(
+                      Icons.send_outlined,
+                      color: Colors.white,
+                    ), // Icon indicating send action.
             ),
           ),
-        ],
+        ),
       ),
     );
   }
