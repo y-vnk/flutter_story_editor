@@ -50,6 +50,7 @@ class _FlutterStoryEditorState extends State<FlutterStoryEditor> {
   void dispose() {
     /// Cleans up resources and controllers on widget disposal.
     drawingUndoController.close();
+
     widget.controller.setStoryEditingModeSelected = StoryEditingModes.paint;
     keyboardSubscription.cancel();
     super.dispose();
@@ -374,9 +375,12 @@ class _FlutterStoryEditorState extends State<FlutterStoryEditor> {
                                     widget.selectedFiles![currentPageIndex];
                                 widget.controller.setFilterSelected =
                                     selectedFilters[currentPageIndex];
-
-                                widget.controller.setStoryEditingModeSelected =
-                                    StoryEditingModes.paint;
+                                for (File file in widget
+                                    .selectedFiles!) // paint is applied only for images
+                                  if (!(isVideo(file)))
+                                    widget.controller
+                                            .setStoryEditingModeSelected =
+                                        StoryEditingModes.paint;
                               },
                               currentPageIndex: currentPageIndex,
                               pageController: _pageController,
