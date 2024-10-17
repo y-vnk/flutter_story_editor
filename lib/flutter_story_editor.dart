@@ -51,7 +51,7 @@ class _FlutterStoryEditorState extends State<FlutterStoryEditor> {
     /// Cleans up resources and controllers on widget disposal.
     drawingUndoController.close();
 
-    widget.controller.setStoryEditingModeSelected = StoryEditingModes.paint;
+    // widget.controller.setStoryEditingModeSelected = StoryEditingModes.paint;
     keyboardSubscription.cancel();
     super.dispose();
   }
