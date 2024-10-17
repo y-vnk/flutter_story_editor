@@ -22,7 +22,8 @@ class MainControlsView extends StatefulWidget {
   final List<File>?
       selectedFiles; // Optional list of media files selected for editing.
   final VoidCallback? onSaveClickListener; // Optional callback for save action.
-
+  final TextEditingController?
+      captionController; // Optional controller for caption text.
   final FlutterStoryEditorController
       controller; // Controller for managing editor states and interactions.
   final List<File>
@@ -47,11 +48,14 @@ class MainControlsView extends StatefulWidget {
   final List<Stroke> lines; // List of stroke actions for drawing.
   final bool isSaving; // Flag to indicate if a save operation is in progress.
   final bool isFocused; // Flag to check if the keyboard is focused.
+  final FocusNode?
+      captionFocusNode; // Optional focus node for the caption input.
 
   const MainControlsView({
     super.key,
     this.selectedFiles,
     this.onSaveClickListener,
+    this.captionController,
     required this.controller,
     required this.isFocused,
     required this.uiViewEditableFiles,
@@ -66,6 +70,7 @@ class MainControlsView extends StatefulWidget {
     required this.lines,
     required this.isSaving,
     required this.textList,
+    this.captionFocusNode,
     required this.onStickersClickListener,
     required this.stickerList,
   });
@@ -140,11 +145,11 @@ class _MainControlsViewState extends State<MainControlsView> {
       alignment: Alignment.center,
       children: [
         for (File file in widget.selectedFiles!)
-          if (!(isVideo(file)))
-            Align(
-              alignment: Alignment.topCenter,
-              child: _buildTop(),
-            ),
+          // if (!(isVideo(file)))
+          Align(
+            alignment: Alignment.topCenter,
+            child: _buildTop(),
+          ),
         Align(
           alignment: Alignment.bottomCenter,
           child: _buildBottom(),
