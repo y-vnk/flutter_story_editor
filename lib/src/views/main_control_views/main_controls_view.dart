@@ -205,17 +205,17 @@ class _MainControlsViewState extends State<MainControlsView> {
           ),
           Column(
             children: [
-              if (widget.isFocused == false)
-                ThumbnailView(
-                  controller: widget.controller,
-                  onThumbnailTapListener: (thumbnailItemIndex) {
-                    widget.pageController.jumpToPage(thumbnailItemIndex);
-                  },
-                  currentPageIndex: widget.currentPageIndex,
-                  thumbnails: _thumbnails,
-                  selectedFiles: widget.uiViewEditableFiles,
-                  selectedFilters: widget.selectedFilters,
-                ),
+              // if (widget.isFocused == false)
+              //   ThumbnailView(
+              //     controller: widget.controller,
+              //     onThumbnailTapListener: (thumbnailItemIndex) {
+              //       widget.pageController.jumpToPage(thumbnailItemIndex);
+              //     },
+              //     currentPageIndex: widget.currentPageIndex,
+              //     thumbnails: _thumbnails,
+              //     selectedFiles: widget.uiViewEditableFiles,
+              //     selectedFilters: widget.selectedFilters,
+              //   ),
               const SizedBox(
                 height: 10,
               ),
